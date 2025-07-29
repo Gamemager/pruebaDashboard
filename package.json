@@ -81,7 +81,7 @@
     "shufflejs": "4.2.0",
     "tslib": "^2.0.0",
     "widgster": "1.0.0",
-    "zone.js": "~0.15.0"
+    "zone.js": "~0.11.4"
   },
   "napa": {
     "bootstrap-application-wizard": "https://github.com/amoffat/bootstrap-application-wizard.git#3768da3142f43428c5f63284407a2481a9e283d3",
