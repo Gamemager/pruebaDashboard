@@ -1,0 +1,116 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">YOU ARE HERE</li>
+  <li class="active breadcrumb-item">Profile</li>
+</ol>
+<h1 class="page-title">User - <span class="fw-semi-bold">Profile</span></h1>
+
+<div class="row profile">
+  <!-- Columna principal del perfil (ocupa todo el ancho en pantallas pequeñas, la mitad en grandes) -->
+  <div class="col-lg-12 col-12">
+    <section class="widget">
+      <div class="widget-body">
+        <!-- Sección de encabezado del perfil con imagen de fondo (opcional) -->
+        <div class="widget-top-overflow text-white">
+          <div class="height-250 overflow-hidden" style="background-color: #f0f0f0;">
+            <!-- Puedes poner una imagen de fondo aquí si tienes una URL dinámica -->
+            <!-- <img class="img-fluid" [src]="currentUser?.coverImageUrl || 'https://placehold.co/800x250/cccccc/ffffff?text=Cover+Image'"> -->
+          </div>
+          <!-- Botones de "Follow" o "Send" eliminados, ya que son para perfiles públicos -->
+        </div>
+
+        <div class="row">
+          <!-- Columna para la imagen de perfil y datos básicos -->
+          <div class="col-md-4 col-12 text-center">
+            <div class="post-user post-user-profile">
+              <span class="thumb-xl profile-image-container">
+                <!-- Imagen de perfil dinámica -->
+                <img class="rounded-circle profile-picture" [src]="imagePreviewUrl" alt="Profile Picture">
+                <!-- Botón para subir imagen -->
+                <label for="profileImageInput" class="btn btn-primary btn-sm upload-button">
+                  <i class="fa fa-camera"></i> Subir Imagen
+                </label>
+                <input type="file" id="profileImageInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+              </span>
+              <h5 class="fw-normal mt-3">
+                <span class="fw-semi-bold">{{ currentUser?.name || 'Cargando...' }}</span>
+                {{ currentUser?.lastname || '' }}
+              </h5>
+              <p>{{ currentUser?.role || 'Rol no definido' }}</p>
+
+              <!-- Botón de "Send" eliminado -->
+
+              <ul class="contacts">
+                <!-- Mostrar información del usuario logueado -->
+                <li *ngIf="currentUser?.username"><i class="fa fa-lg fa-user fa-fw mr-xs"></i> Usuario: {{ currentUser?.username }}</li>
+                <li *ngIf="currentUser?.email"><i class="fa fa-lg fa-envelope fa-fw mr-xs"></i> Email: {{ currentUser?.email }}</li>
+                <!-- Puedes añadir más campos si tu API los devuelve, como teléfono, ubicación, etc. -->
+                <!-- <li><i class="fa fa-lg fa-phone fa-fw mr-xs"></i><a href="#"> +375 29 555-55-55</a></li> -->
+                <!-- <li><i class="fa fa-lg fa-map-marker fa-fw mr-xs"></i><a href="#"> Minsk, Belarus</a></li> -->
+              </ul>
+            </div>
+            <!-- Botón para subir la imagen seleccionada -->
+            <button *ngIf="imageFile" class="btn btn-success mt-3" (click)="uploadProfileImage()">
+              <i class="fa fa-upload mr-xs"></i> Guardar Imagen
+            </button>
+          </div>
+
+          <!-- Columna para la información detallada y formularios -->
+          <div class="col-md-8 col-12">
+            <!-- Sección de estadísticas eliminada o adaptada si tienes estadísticas relevantes para el usuario -->
+            <!-- <div class="stats-row stats-row-profile mt text-left">...</div> -->
+
+            <!-- Sección de tags eliminada -->
+            <!-- <p class="text-left mt-lg"><a href="#" class="badge badge-warning rounded-0"> ... </a></p> -->
+
+            <p class="lead mt-lg">
+              Bienvenido a tu perfil, {{ currentUser?.name || 'usuario' }}. Aquí puedes gestionar tu información personal y seguridad.
+            </p>
+            <p>
+              Esta sección te permite actualizar tus datos y mantener tu cuenta segura.
+            </p>
+
+            <hr>
+
+            <!-- Formulario de Cambio de Contraseña -->
+            <h4 class="mt-4">Cambiar Contraseña</h4>
+            <form [formGroup]="passwordForm" (ngSubmit)="changePassword()" class="mt-3">
+              <div class="form-group">
+                <label for="currentPassword">Contraseña Actual</label>
+                <input type="password" id="currentPassword" formControlName="currentPassword" class="form-control"
+                       [ngClass]="{'is-invalid': passwordForm.get('currentPassword')?.invalid && passwordForm.get('currentPassword')?.touched}">
+                <div *ngIf="passwordForm.get('currentPassword')?.invalid && passwordForm.get('currentPassword')?.touched" class="invalid-feedback">
+                  La contraseña actual es requerida.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="newPassword">Nueva Contraseña</label>
+                <input type="password" id="newPassword" formControlName="newPassword" class="form-control"
+                       [ngClass]="{'is-invalid': passwordForm.get('newPassword')?.invalid && passwordForm.get('newPassword')?.touched}">
+                <div *ngIf="passwordForm.get('newPassword')?.invalid && passwordForm.get('newPassword')?.touched" class="invalid-feedback">
+                  <span *ngIf="passwordForm.get('newPassword')?.errors?.['required']">La nueva contraseña es requerida.</span>
+                  <span *ngIf="passwordForm.get('newPassword')?.errors?.['minlength']">La nueva contraseña debe tener al menos 6 caracteres.</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="confirmNewPassword">Confirmar Nueva Contraseña</label>
+                <input type="password" id="confirmNewPassword" formControlName="confirmNewPassword" class="form-control"
+                       [ngClass]="{'is-invalid': passwordForm.get('confirmNewPassword')?.invalid && passwordForm.get('confirmNewPassword')?.touched || passwordForm.errors?.['mismatch']}">
+                <div *ngIf="passwordForm.get('confirmNewPassword')?.invalid && passwordForm.get('confirmNewPassword')?.touched" class="invalid-feedback">
+                  La confirmación de la contraseña es requerida.
+                </div>
+                <div *ngIf="passwordForm.errors?.['mismatch'] && passwordForm.get('confirmNewPassword')?.touched" class="invalid-feedback">
+                  Las contraseñas no coinciden.
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary mt-3" [disabled]="passwordForm.invalid">
+                <i class="fa fa-key mr-xs"></i> Cambiar Contraseña
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Las secciones de "Activities" y "Comments" han sido eliminadas -->
+</div>
+

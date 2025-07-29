@@ -1,0 +1,76 @@
+<div class="analytics-page">
+  <h1 class="page-title">Analytics
+    <small>
+      <small>Leads</small>
+    </small>
+  </h1>
+  <div class="sidesWrapper">
+    <div class="analyticsSide">
+      <div class="row">
+        <div class="col-12 col-lg-6 col-xl-4" *ngFor="let stat of mock.bigStat" [attr.key]="stat.id">
+          <big-stat
+            [product]="stat.product"
+            [color]="stat.color"
+            [total]="stat.total"
+            [registrations]="stat.registrations"
+            [bounce]="stat.bounce"
+          ></big-stat>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <section class="widget" widget>
+            <header>
+              <h5>Lead <span class='fw-semi-bold'>Requests</span></h5>
+            </header>
+            <div class="widget-body widget-table-overflow">
+              <div class="table-responsive">
+                <table class="table table-lg mb-0 requests-table">
+                  <thead>
+                    <tr class="text-muted">
+                      <th>NAME</th>
+                      <th>EMAIL</th>
+                      <th>MOBILE</th>
+                      <th>COMPANY</th>
+                      <th>COUNTRY</th>
+                      <th>VIEW MORE</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      *ngFor="let row of mock.table"
+                      [attr.key]="row.id"
+                    >
+                      <td>{{row.name}} {{row.lastname}}</td>
+                      <td>{{row.email}}</td>
+                      <td>{{row.product}}</td>
+                      <td>{{row.price}}</td>
+                      <td>{{row.country}}</td>
+                      <td>
+                        <span class="badge badge-{{row.status === 'Pending' ? 'success' : row.status === 'Declined' ? 'danger' : 'info'}}">
+                          {{row.status}}
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="analyticsSide">
+      <div class="row">
+        <div class="lastSideElement col-12 col-md-6 col-xl-12">
+          <section class="mb-5 pt-0 widget" widget>
+            <div class="widget-body p-0 mt-0">
+              <calendar [events]="calendarEvents" [white]="true"></calendar>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

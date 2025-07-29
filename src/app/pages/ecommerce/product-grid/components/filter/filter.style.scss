@@ -1,0 +1,18 @@
+.filters {
+  display: flex;
+  margin-bottom: 30px;
+
+  .filters-group {
+    margin-left: 25px;
+    display: flex;
+    align-items: center;
+
+    .btn-group {
+      margin-left: 5px;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

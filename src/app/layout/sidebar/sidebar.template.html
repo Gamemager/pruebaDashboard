@@ -1,0 +1,211 @@
+<div class="js-sidebar-content">
+  <header class="logo d-none d-md-block">
+    <a href="index.html"><span class="text-warning">Boost</span> Dashboard</a>
+  </header>
+  <ul class="sidebar-nav">
+    <li routerLinkActive="active">
+      <a class="collapsed" data-target="#sidebar-dashboard" data-toggle="collapse" data-parent="#sidebar">
+        <span class="icon">
+          <i class="fi flaticon-home"></i>
+        </span>
+        Dashboard
+        <i class="toggle fa fa-angle-down"></i>
+      </a>
+      <ul id="sidebar-dashboard" class="collapse" >
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['analytics'] ">Leads</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['register']">Register</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['visits'] ">Visits</a>
+        </li>
+        <li routerLinkActive="active">
+          <a class="collapsed" data-target="#sidebar-website" data-toggle="collapse" data-parent="#sidebar-dashboard">
+            website
+            <i class="toggle fa fa-angle-down"></i>
+          </a>
+          <ul id="sidebar-website" class="collapse">
+            <li routerLinkActive="active">
+              <a [routerLink]=" ['website/home'] ">inicio</a>
+            </li>
+            <li routerLinkActive="active">
+              <a [routerLink]=" ['website/reports'] ">nosotros</a>
+            </li>
+            <li routerLinkActive="active">
+              <a [routerLink]=" ['website/commissions'] ">servicios</a>
+            </li>
+            <li routerLinkActive="active">
+              <a [routerLink]=" ['website/contacts'] ">contacto</a>
+            </li>
+            <li routerLinkActive="active">
+              <a [routerLink]=" ['website/plans'] ">planes</a>
+            </li>
+            <li routerLinkActive="active">
+              <a [routerLink]=" ['website/fundation'] ">fundación</a>
+            </li>
+            <li routerLinkActive="active">
+              <a [routerLink]=" ['website/boostcast'] ">boostcast</a>
+            </li>
+            <li routerLinkActive="active">
+              <a [routerLink]=" ['website/shop'] ">tienda</a>
+            </li>
+            <li routerLinkActive="active">
+              <a [routerLink]=" ['website/form'] ">form</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <!-- <li routerLinkActive="active">
+      <a class="collapsed" data-target="#sidebar-ecommerce" data-toggle="collapse" data-parent="#sidebar">
+        <span class="icon">
+          <i class="fi flaticon-diamond"></i>
+        </span>
+        E-commerce
+        <sup class="text-danger fw-semi-bold">
+          Backend
+        </sup>
+        <i class="toggle fa fa-angle-down"></i>
+      </a>
+      <ul id="sidebar-ecommerce" class="collapse">
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['ecommerce/management'] ">Product Management</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['ecommerce/product-grid'] ">Product Grid</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['ecommerce/product'] ">Product Detail</a>
+        </li>
+      </ul>
+    </li> 
+    <li routerLinkActive="active">
+      <a [routerLink]=" ['inbox'] ">
+        <span class="icon">
+          <i class="fi flaticon-paper-plane"></i>
+        </span>
+        Email
+        <span class="badge badge-pill badge-warning">
+          9
+        </span>
+      </a>
+    </li>-->
+    <li routerLinkActive="active">
+      <a [routerLink]=" ['profile'] ">
+        <span class="icon">
+          <i class="fi flaticon-user"></i>
+        </span>
+        Profile
+        <sup class="text-warning fw-semi-bold">
+        </sup>
+      </a>
+    </li>
+    <!-- <li routerLinkActive="active">
+      <a [routerLink]=" ['package'] ">
+        <span class="icon">
+          <i class="fi flaticon-database-1"></i>
+        </span>
+        Sing Package
+        <sup class="text-warning fw-semi-bold">
+          4.0
+        </sup>
+      </a>
+    </li> -->
+  </ul>
+  <!-- every .sidebar-nav may have a title -->
+  <h5 class="sidebar-nav-title">Template
+    <a class="action-link" href="#">
+      <i class="glyphicon glyphicon-refresh"></i>
+    </a>
+  </h5>
+   <ul class="sidebar-nav">
+    <!--<li>
+       an example of nested submenu. basic bootstrap collapse component 
+      <a class="collapsed" data-target="#sidebar-core" data-toggle="collapse" data-parent="#sidebar">
+        <span class="icon">
+          <i class="fi flaticon-network"></i>
+        </span>
+        Core
+        <i class="toggle fa fa-angle-down"></i>
+      </a>
+      <ul id="sidebar-core" class="collapse">
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['core/typography'] ">Typography</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['core/colors'] ">Colors</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['core/grid'] ">Grid</a>
+        </li>
+      </ul>
+    </li> -->
+    
+    <!-- <li>
+      <a class="collapsed" data-target="#sidebar-charts" data-toggle="collapse" data-parent="#sidebar">
+        <span class="icon">
+          <i class="fi flaticon-controls"></i>
+        </span>
+        Charts
+        <i class="toggle fa fa-angle-down"></i>
+      </a>
+      <ul id="sidebar-charts" class="collapse">
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['charts/overview'] ">Charts Overview</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['charts/flot'] ">Flot Charts</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['charts/sparkline'] ">Sparkline Charts</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['charts/easy-pie'] ">Easy Pie Charts</a>
+        </li>
+      </ul>
+    </li> -->
+    <li>
+      <a class="collapsed" data-target="#sidebar-maps" data-toggle="collapse" data-parent="#sidebar">
+        <span class="icon">
+          <i class="fi flaticon-map-location"></i>
+        </span>
+        Maps
+        <i class="toggle fa fa-angle-down"></i>
+      </a>
+      <ul id="sidebar-maps" class="collapse">
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['maps/google'] ">Google Maps</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a class="collapsed" data-target="#sidebar-extra" data-toggle="collapse" data-parent="#sidebar">
+        <span class="icon">
+          <i class="fi flaticon-star"></i>
+        </span>
+        Extra
+        <i class="toggle fa fa-angle-down"></i>
+      </a>
+      <ul id="sidebar-extra" class="collapse">
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['extra/calendar'] ">Calendar
+            <sup class="bg-transparent text-danger fs-sm fw-bold">ng2</sup>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]=" ['/error'] ">Error Page</a>
+        </li>
+      </ul>
+    </li>
+    <li *ngIf="configFn.isScreen('xs') || configFn.isScreen('sm')">
+      <a (click)="logout()">
+        <span class="icon">
+          <i class="fa fa-sign-out"></i>
+        </span>
+        Logout
+      </a>
+    </li>
+  </ul>
+</div>
